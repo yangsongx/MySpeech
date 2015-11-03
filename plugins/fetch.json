@@ -46,5 +46,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "plugin-myspeech": {
+        "source": {
+            "type": "local",
+            "path": "/tmp/a22301/cordova-plugin-myspeech"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
