@@ -12,6 +12,11 @@ angular.module('starter', ['ionic'])
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
+    // init the voice engin plugin
+    if(window.cordova && window.navigator.myspeechApis) {
+      console.error("calling plugin JS...");
+      navigator.myspeechApis.tryInitEngine();
+    }
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }

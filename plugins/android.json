@@ -31,6 +31,10 @@
                         {
                             "xml": "<feature name=\"MySpeech\"><param name=\"android-package\" value=\"org.ioniconline.MySpeech\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"MyDemo\"><param name=\"android-package\" value=\"org.ioniconline.MyDemo\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -67,6 +71,9 @@
             "PACKAGE_NAME": "com.ionicframework.myspeech998531"
         },
         "plugin-myspeech": {
+            "PACKAGE_NAME": "com.ionicframework.myspeech998531"
+        },
+        "org.ioniconline": {
             "PACKAGE_NAME": "com.ionicframework.myspeech998531"
         }
     },

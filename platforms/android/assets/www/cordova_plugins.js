@@ -54,6 +54,13 @@ module.exports = [
         "clobbers": [
             "navigator.myspeechApis"
         ]
+    },
+    {
+        "file": "plugins/org.ioniconline/www/MyDemo.js",
+        "id": "org.ioniconline.MyDemo",
+        "clobbers": [
+            "cordova.plugins.MyDemo"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -65,7 +72,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "1.0.1",
     "cordova-plugin-whitelist": "1.0.0",
     "ionic-plugin-keyboard": "1.0.7",
-    "plugin-myspeech": "0.0.1"
+    "plugin-myspeech": "0.0.1",
+    "org.ioniconline": "0.1"
 }
 // BOTTOM OF METADATA
 });

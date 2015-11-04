@@ -21,10 +21,36 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script>
+        function onLoad() {
+            console.error('init the voice engine');
+            navigator.myspeechApis.tryInitEngine(
+                    function(goodData){console.error("Good:" + goodData);},
+                    function(badData){console.error("Bad:" + badData);});
+            console.error("finish the voice engine");
+        }
+
         function listenToMe() {
             var voice = document.getElementById("voice_name").selectedIndex;
-            alert('hello:' + voice);
-            //navigator.myspeechApis.tryListening();
+            var speed = document.getElementById("voice_frequency").value;
+            navigator.myspeechApis.tryListening(
+                    function(okData) {
+                        //$('textarea#textsection').html(okData);
+                        //$('textarea#textsection').html('good');
+                        // speak it out
+                        navigator.myspeechApis.trySpeak(
+                            function(okData) {
+                            },
+                            function(failData) {
+                            },
+                            [voice, speed, okData]);
+                    },
+                    function(failData) {
+                        $('textarea#textsection').html(failData);
+                    },
+                    []);
+            //
+            //try speak the text data
+            /*
             navigator.myspeechApis.trySpeak(
                     function(okData) {
                         alert('good data:' + okData);
@@ -32,11 +58,22 @@
                     function(failData) {
                         alert('failed msg:' + failData);
                     },
-                    []);
+                    [voice]);
+             */
+        }
+
+        function getVersion() {
+            cordova.plugins.MyDemo.coolMethod('useless',
+                    function(okData) {
+                        alert(okData);
+                    },
+                    function(failData) {
+                        alert(failData);
+                    });
         }
     </script>
   </head>
-  <body ng-app="starter" class="platform-android platform-cordova platform-webview">
+  <body ng-app="starter"  class="platform-android platform-cordova platform-webview">
 
     <ion-pane>
       <ion-header-bar class="bar-stable">
@@ -56,8 +93,12 @@
                 <option value="6">湖南话</option>
                 <option value="7">东北话</option>
                 <option value="8">台湾话</option>
-                <option value="9">随机选择</option>
+                <option value="9" selected>随机选择</option>
              </select>
+             </p>
+             <p><input id="voice_frequency" type="range" min="10" max="100" /></p>
+         <div> </div>
+         <p><button onclick='getVersion()'>System Version</button></p>
         <div id='status'></div>
       </ion-content>
     </ion-pane>
